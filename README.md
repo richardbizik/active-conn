@@ -9,3 +9,8 @@ go generate
 ```bash
 go install github.com/richardbizik/active-conn
 ```
+
+# run (needs to set memlock rlimit hence we run it as a superuser)
+```bash
+sudo active-conn
+```
