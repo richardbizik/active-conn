@@ -26,19 +26,6 @@ func main() {
 	}()
 	InitEBPF()
 	updateScreenModel()
-	fmt.Println("Connections left open:")
-	for _, cd := range openConnections {
-		fmt.Printf("%-27s %-18s %-15s %-6d -> %-15s %-6d %-8d\n",
-			cd.created.Format(time.RFC3339),
-			B2S(cd.Comm),
-			intToIP(cd.Saddr),
-			cd.Sport,
-			intToIP(cd.Daddr),
-			cd.Dport,
-			cd.State,
-		)
-	}
-
 }
 
 func updateScreenModel() {
