@@ -51,25 +51,23 @@ func updateScreenModel() {
 func draw(data []connData) {
 	fmt.Print("\033[2J")            //Clear screen
 	fmt.Printf("\033[%d;%dH", 0, 0) // Set cursor position
-	fmt.Printf("%-27s %-18s %-15s %-6s -> %-15s %-6s %-5s\n",
+	fmt.Printf("%-27s %-18s %-15s %-6s -> %-15s %-6s\n",
 		"Time",
 		"Comm",
 		"Src addr",
 		"Port",
 		"Dest addr",
 		"Port",
-		"State",
 	)
-	fmt.Printf("-----------------------------------------------------------------------------------------------------\n")
+	fmt.Printf("---------------------------------------------------------------------------------------------\n")
 	for _, cd := range data {
-		fmt.Printf("%-27s %-18s %-15s %-6d -> %-15s %-6d %-5d\n",
+		fmt.Printf("%-27s %-18s %-15s %-6d -> %-15s %-6d\n",
 			cd.created.Format(time.RFC3339),
 			B2S(cd.Comm),
 			intToIP(cd.Saddr),
 			cd.Sport,
 			intToIP(cd.Daddr),
 			cd.Dport,
-			cd.State,
 		)
 	}
 }
